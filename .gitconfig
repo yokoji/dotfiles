@@ -1,0 +1,19 @@
+[user]
+  name  = Ryu Yokoji
+  email = ryu.yokoji@gmail.com
+
+[color]
+  status       = auto
+  diff         = auto
+  branch       = auto
+  grep         = auto
+  interactive  = auto
+
+[push]
+  default      = tracking
+
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf     = input 
+  editor       = vim
+
