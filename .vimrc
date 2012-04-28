@@ -1,46 +1,5 @@
-"------------------------------------------------------------------------------- 
-" Plugin
-"------------------------------------------------------------------------------- 
-set nocompatible
-filetype off
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
-" color
-NeoBundle 'tomasr/molokai'
-
-" programming
-NeoBundle 'ruby.vim'
-NeoBundle 'tpope/vim-rails'
-
-" syntax
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'JavaScript-syntax'
-NeoBundle 'jQuery'
-NeoBundle 'haml.zip'
-NeoBundle 'nginx.vim'
-
-" search
-NeoBundle 'matchit.zip'
-NeoBundle 'ruby-matchit'
-NeoBundle 'smartword'
-
-" utils
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'neobundle.vim'
-
-filetype plugin indent on
-
-"------------------------------------------------------------------------------- 
-" Plugin Setting
-"------------------------------------------------------------------------------- 
-" syntastic
-let g:syntastic_enable_signs = 1
-let g:syntastic_enable_highlighting = 1
+" load plugins
+source ~/dotfiles/.vimrc.plugin
 
 "------------------------------------------------------------------------------- 
 " General
@@ -48,6 +7,9 @@ let g:syntastic_enable_highlighting = 1
 " encoding
 set encoding=utf-8
 set ffs=unix,dos,mac
+
+" +ruby
+let $RUBY_DLL = "/home/anbey/.rbenv/versions/1.9.3-p194/lib/libruby.1.9.dylib"
 
 let mapleader = ","
 set scrolloff=5
@@ -74,6 +36,10 @@ set ttymouse=xterm2
 
 set clipboard=unnamed
 imap <C-p>  <ESC>"*pa
+
+" http://d.hatena.ne.jp/gnarl/20120308/1331180615
+autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 "------------------------------------------------------------------------------- 
 " StatusLine

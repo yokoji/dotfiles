@@ -9,10 +9,15 @@ export LESSCHARSET=utf-8
 bindkey -v
 
 # Editor
-export EDITOR=vi
+export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 
 # Path
-export PATH=$PATH:$HOME/local/bin:/sbin:usr/local/sbin
+PATH=$PATH:$HOME/local/bin:/sbin:usr/local/sbin
+PATH=$HOME/.rbenv/bin:$PATH
+PATH=$PATH:$HOME/.nave/installed/0.6.2/bin
+PATH=$PATH:$HOME/DB/mongodb-osx-i386-2.0.1/bin
+PATH=$PATH:/Applications/android-sdk-macosx/platform-tools
+export PATH
 
 # Others
 setopt complete_aliases
@@ -98,7 +103,7 @@ case ${UID} in
     WHITE="%{${fg[white]}%}"
 
     setopt prompt_subst
-    PROMPT='${RESET}${GREEN}${WINDOW:+"[$WINDOW]"}${RESET}%{$fg_bold[blue]%}${USER}@%m ${RESET}${WHITE}$ ${RESET}'
+    PROMPT='${RESET}${GREEN}${WINDOW:+"[$WINDOW]"}${RESET}%{$fg_bold[blue]%}%m ${RESET}${WHITE}%% ${RESET}'
     RPROMPT='${RESET}${WHITE}[${BLUE}%(5~,%-2~/.../%2~,%~)% ${WHITE}]${WINDOW:+"[$WINDOW]"} ${RESET}'
 
     #--------------------------------------------
@@ -193,6 +198,12 @@ alias la="ls -la"
 alias lf="ls -lF"                                                                                                                                                                            
 alias ll="ls -l"
 
+# vi
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias gv='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
+alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
+
 # ps
 alias ps="ps auxwww"
 
@@ -232,5 +243,10 @@ extract () {
 alias ex='extract'
 
 
-
+#-------------------------------------------------------------------------------
+# Initialize
+#-------------------------------------------------------------------------------
+# rbenv
+eval "$(rbenv init -)"
+source ~/.rbenv/completions/rbenv.zsh
 
