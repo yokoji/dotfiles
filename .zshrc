@@ -194,7 +194,7 @@ alias lf="ls -lF"
 alias ll="ls -l"
 
 # ps
-alias ps="pas auxwww"
+alias ps="ps auxwww"
 
 # sudo
 alias ss="sudo -s"
