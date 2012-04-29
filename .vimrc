@@ -9,7 +9,8 @@ set encoding=utf-8
 set ffs=unix,dos,mac
 
 " +ruby
-let $RUBY_DLL = "/home/anbey/.rbenv/versions/1.9.3-p194/lib/libruby.1.9.dylib"
+"let $RUBY_DLL = "/home/anbey/.rbenv/versions/1.9.3-p194/lib/libruby.1.9.1.dylib"
+let $RUBY_DLL = "/home/anbey/.rbenv/versions/1.9.3-p194/lib/libruby.dylib"
 
 let mapleader = ","
 set scrolloff=5
@@ -112,4 +113,14 @@ set noimdisable
 set iminsert=0 imsearch=0
 set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+"------------------------------------------------------------------------------- 
+" Completion
+"------------------------------------------------------------------------------- 
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+augroup END
 

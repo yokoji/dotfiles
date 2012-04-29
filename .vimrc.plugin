@@ -13,7 +13,7 @@ endif
 NeoBundle 'tomasr/molokai'
 
 " programming
-NeoBundle 'ruby.vim'
+NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
 
 " explorer

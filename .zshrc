@@ -2,6 +2,8 @@
 # General
 #-------------------------------------------------------------------------------
 # Encoding
+export LC_CTYPE=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
  
@@ -13,7 +15,6 @@ export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 
 # Path
 PATH=$PATH:$HOME/local/bin:/sbin:usr/local/sbin
-PATH=$HOME/.rbenv/bin:$PATH
 PATH=$PATH:$HOME/.nave/installed/0.6.2/bin
 PATH=$PATH:$HOME/DB/mongodb-osx-i386-2.0.1/bin
 PATH=$PATH:/Applications/android-sdk-macosx/platform-tools
@@ -213,8 +214,8 @@ alias ss="sudo -s"
 # git
 alias g="git"
 
-# rails
-alias r="rails"
+# bundler
+alias be="bundle exec"
 
 # extract http://d.hatena.ne.jp/jeneshicc/20110215/1297778049
 extract () {
@@ -241,12 +242,4 @@ extract () {
   fi
 }                                                                                                                                                                                            
 alias ex='extract'
-
-
-#-------------------------------------------------------------------------------
-# Initialize
-#-------------------------------------------------------------------------------
-# rbenv
-eval "$(rbenv init -)"
-source ~/.rbenv/completions/rbenv.zsh
 
