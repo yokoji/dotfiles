@@ -12,7 +12,6 @@ set ffs=unix,dos,mac
 "let $RUBY_DLL = "/home/anbey/.rbenv/versions/1.9.3-p194/lib/libruby.1.9.1.dylib"
 let $RUBY_DLL = "/home/anbey/.rbenv/versions/1.9.3-p194/lib/libruby.dylib"
 
-let mapleader = ","
 set scrolloff=5
 set textwidth=0
 set nobackup

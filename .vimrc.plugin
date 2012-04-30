@@ -9,7 +9,7 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-" color
+" color 
 NeoBundle 'tomasr/molokai'
 
 " programming
@@ -18,9 +18,8 @@ NeoBundle 'tpope/vim-rails'
 
 " explorer
 NeoBundle 'The-NERD-tree'
-NeoBundle 'taglist.vim'
-NeoBundle 'Source-Explorer-srcexpl.vim'
-NeoBundle 'trinity.vim'
+NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'minibufexpl.vim'
 
 " syntax
 NeoBundle 'scrooloose/syntastic'
@@ -45,6 +44,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 
 " utils
 NeoBundle 'neobundle.vim'
+NeoBundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
@@ -54,6 +54,18 @@ filetype plugin indent on
 " syntastic
 let g:syntastic_enable_signs = 1
 let g:syntastic_enable_highlighting = 1
+
+" surround.vim
+let g:surround_{char2nr('b')} = "do\n\r\nend"
+let g:surround_{char2nr('p')} = "<p>\r</p>"
+let g:surround_{char2nr("d")} = "<div\1id: \r..*\r id=\"&\"\1>\r</div>"
+let g:surround_{char2nr("a")} = "<a href=\"\r\">\1link_text: \r..*\r&\1</a>"
+let g:surround_{char2nr('1')} = "<h1>\r</h1>"
+let g:surround_{char2nr('2')} = "<h2>\r</h2>"
+let g:surround_{char2nr('3')} = "<h3>\r</h3>"
+let g:surround_{char2nr('4')} = "<h4>\r</h4>"
+let g:surround_{char2nr('5')} = "<h5>\r</h5>"
+let g:surround_{char2nr('6')} = "<h6>\r</h6>"
 
 " vim-indent-guides
 let g:indent_guides_auto_colors = 0
@@ -69,7 +81,7 @@ else
     hi IndentGuidesEven ctermbg=lightgrey
 endif
 
-" taglist.Vim
+" taglist.vim
 let Tlist_Ctags_Cmd   = '/Applications/MacVim.app/Contents/MacOS/ctags'
 let Tlist_Auto_Open   = 0
 let Tlist_Auto_Update = 1
@@ -97,4 +109,14 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+
+" minibufexpl
+let g:miniBufExplMapWindowNavVim=1
+let g:miniBufExplSplitBelow=0
+let g:miniBufExplMapWindowNavArrows=1
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplModSelTarget=1
+let g:miniBufExplSplitToEdge=1
+let g:miniBufExplMaxSize = 5
+let g:miniBufExplUseSingleClick = 1
 
