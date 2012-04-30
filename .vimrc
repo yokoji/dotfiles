@@ -1,6 +1,3 @@
-" load plugins
-source ~/dotfiles/.vimrc.plugin
-
 "------------------------------------------------------------------------------- 
 " General
 "------------------------------------------------------------------------------- 
@@ -9,8 +6,7 @@ set encoding=utf-8
 set ffs=unix,dos,mac
 
 " +ruby
-"let $RUBY_DLL = "/home/anbey/.rbenv/versions/1.9.3-p194/lib/libruby.1.9.1.dylib"
-let $RUBY_DLL = "/home/anbey/.rbenv/versions/1.9.3-p194/lib/libruby.dylib"
+let $RUBY_DLL = "/home/anbey/.rbenv/versions/1.9.3-p194/lib/libruby.1.9.1.dylib"
 
 set scrolloff=5
 set textwidth=0
@@ -40,6 +36,9 @@ imap <C-p>  <ESC>"*pa
 " http://d.hatena.ne.jp/gnarl/20120308/1331180615
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
+" load plugins
+source ~/dotfiles/.vimrc.plugin
 
 "------------------------------------------------------------------------------- 
 " StatusLine
@@ -87,7 +86,7 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-nmap <ESC><ESC> ;nohlsearch<CR><ESC>
+nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
 
 "------------------------------------------------------------------------------- 
