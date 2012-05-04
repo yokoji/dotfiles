@@ -1,4 +1,9 @@
 "------------------------------------------------------------------------------- 
+" Plugins
+"------------------------------------------------------------------------------- 
+source ~/dotfiles/.vimrc.plugin
+
+"------------------------------------------------------------------------------- 
 " General
 "------------------------------------------------------------------------------- 
 " encoding
@@ -36,9 +41,6 @@ imap <C-p>  <ESC>"*pa
 " http://d.hatena.ne.jp/gnarl/20120308/1331180615
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-
-" load plugins
-source ~/dotfiles/.vimrc.plugin
 
 "------------------------------------------------------------------------------- 
 " StatusLine
@@ -88,7 +90,6 @@ set incsearch
 set hlsearch
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
-
 "------------------------------------------------------------------------------- 
 " Cursor
 "------------------------------------------------------------------------------- 
@@ -111,14 +112,4 @@ set noimdisable
 set iminsert=0 imsearch=0
 set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
-
-"------------------------------------------------------------------------------- 
-" Completion
-"------------------------------------------------------------------------------- 
-augroup MyXML
-  autocmd!
-  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
-augroup END
 

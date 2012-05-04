@@ -1,5 +1,5 @@
 "------------------------------------------------------------------------------- 
-" Plugin
+" NeoBundle
 "------------------------------------------------------------------------------- 
 set nocompatible
 filetype off
@@ -9,28 +9,28 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-" color 
-NeoBundle 'tomasr/molokai'
-
-" programming
-NeoBundle 'vim-ruby/vim-ruby'
+" edit
+NeoBundle 'YankRing.vim'
+NeoBundle 'surround.vim'
+NeoBundle 'Align'
 NeoBundle 'tpope/vim-rails'
 
 " explorer
 NeoBundle 'The-NERD-tree'
-NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'minibufexpl.vim'
 
 " syntax
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'jQuery'
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'skammer/vim-css-color'
 NeoBundle 'haml.zip'
 NeoBundle 'nginx.vim'
 
 " completion
-NeoBundle 'surround.vim'
 NeoBundle 'Shougo/neocomplcache'
 
 " search
@@ -39,6 +39,7 @@ NeoBundle 'ruby-matchit'
 NeoBundle 'smartword'
 
 " visual
+NeoBundle 'tomasr/molokai'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Lokaltog/vim-powerline'
 
@@ -68,27 +69,23 @@ let g:surround_{char2nr('5')} = "<h5>\r</h5>"
 let g:surround_{char2nr('6')} = "<h6>\r</h6>"
 
 " vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
 let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 4
-let g:indent_guides_guide_size  = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-if 'dark' == &background
-    hi IndentGuidesOdd  ctermbg=black
-    hi IndentGuidesEven ctermbg=darkgrey
-else
-    hi IndentGuidesOdd  ctermbg=white
-    hi IndentGuidesEven ctermbg=lightgrey
-endif
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#454545 ctermbg=237
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3E3E3D ctermbg=236
+
+" YankRing.Vim
+let g:yankring_history_dir = expand('$HOME')
+let g:yankring_history_file = '.yankring_history'
+
+" Align
+let g:Align_xstrlen = 3
 
 " taglist.vim
 let Tlist_Ctags_Cmd   = '/Applications/MacVim.app/Contents/MacOS/ctags'
 let Tlist_Auto_Open   = 0
 let Tlist_Auto_Update = 1
-
-" srcexp
-let g:SrcExpl_UpdateTags  = 1
-let g:SrcExpl_RefreshTime = 0
 
 " neocomplecache
 let g:neocomplcache_enable_at_startup = 1
@@ -98,6 +95,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_enable_quick_match = 1
 let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
